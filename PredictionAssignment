@@ -1,6 +1,11 @@
 http://machinelearningmastery.com/machine-learning-in-r-step-by-step/
 http://machinelearningmastery.com/machine-learning-project-template-in-r/
 # 1. Prepare Problem
+library(parallel)
+library(doParallel)
+cluster <- makeCluster(detectCores() - 1) # convention to leave 1 core for OS
+
+registerDoParallel(cluster)
 # a) Load libraries
 url_train <- "https://d396qusza40orc.cloudfront.net/predmachlearn/pml-training.csv"
 destination_train <- "pml-training.csv"
